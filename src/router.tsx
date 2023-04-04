@@ -3,7 +3,7 @@ import SigninPage from './pages/SigninPage';
 import SignupPage from './pages/SignupPage';
 import TodoPage from './pages/TodoPage';
 
-export default createBrowserRouter([
+const router = createBrowserRouter([
   {
     path: '/signup',
     element: <SignupPage />,
@@ -17,3 +17,5 @@ export default createBrowserRouter([
     element: <TodoPage />,
   },
 ]);
+
+export default router;
