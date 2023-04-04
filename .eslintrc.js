@@ -29,6 +29,10 @@ module.exports = {
       },
     ],
     'react/require-default-props': [0],
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': ['error'],
+    'react/button-has-type': 'off',
+    'arrow-body-style': ['error', 'always'],
   },
   settings: {
     'import/resolver': {
