@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import styles from './Input.module.scss';
 
 type InputProps = {
   name: string;
@@ -10,7 +11,7 @@ function Input({ name, label, ...rest }: InputProps) {
   return (
     <>
       <label htmlFor={name}>{label}</label>
-      <input name={name} {...rest} />
+      <input className={styles.input} name={name} {...rest} />
     </>
   );
 }

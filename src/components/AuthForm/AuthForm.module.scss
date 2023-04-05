@@ -1,10 +1,11 @@
 .auth_form {
-  max-width: 240px;
+  min-width: 300px;
   display: flex;
   flex-direction: column;
   gap: 1rem;
 
   border: 1.5px solid black;
+  border-radius: 10px;
   padding: 1rem;
 }
 
