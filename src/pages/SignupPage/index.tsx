@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthCredentials } from '../../@type/auth.type';
-import SignupForm from '../../components/SignupForm';
+import AuthForm from '../../components/AuthForm';
 import { signup } from '../../utils/api/authApi';
 import styles from './SignupPage.module.scss';
 
@@ -24,7 +24,7 @@ function SignupPage() {
 
   return (
     <main className={styles.main}>
-      <SignupForm onSubmit={handleSubmit} />
+      <AuthForm authType="signup" onSubmit={handleSubmit} />
     </main>
   );
 }
