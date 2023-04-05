@@ -6,13 +6,14 @@ import { validateEmail, validatePassword } from '../../utils/validate';
 import Button from '../UI/Button';
 import Input from '../UI/Input';
 
-import styles from './Signup.module.scss';
+import styles from './AuthForm.module.scss';
 
-type SignupFormProps = {
+type AuthFormProps = {
   onSubmit: ({ email, password }: AuthCredentials) => void;
+  authType: 'signin' | 'signup';
 };
 
-function SignupForm({ onSubmit }: SignupFormProps) {
+function AuthForm({ onSubmit, authType }: AuthFormProps) {
   const [{ email, password }, onChange] = useInputs<AuthCredentials>({
     email: '',
     password: '',
@@ -35,8 +36,8 @@ function SignupForm({ onSubmit }: SignupFormProps) {
   }, [email, password]);
 
   return (
-    <form className={styles.signup_form} onSubmit={handleSubmit}>
-      <fieldset className={styles.signup_form_fieldset}>
+    <form className={styles.auth_form} onSubmit={handleSubmit}>
+      <fieldset className={styles.auth_form_fieldset}>
         <Input
           value={email}
           name="email"
@@ -47,27 +48,43 @@ function SignupForm({ onSubmit }: SignupFormProps) {
           required
         />
       </fieldset>
-      <fieldset className={styles.signup_form_fieldset}>
+      <fieldset className={styles.auth_form_fieldset}>
         <Input
           value={password}
           name="password"
           label="패스워드"
-          data-testid="password-inpu"
+          data-testid="password-input"
           onChange={onChange}
           type="password"
           required
         />
       </fieldset>
-      <Button
-        data-testid="signup-button"
-        type="submit"
-        disabled={disabledButton}
-        onClick={handleSubmit}
-      >
-        회원가입
-      </Button>
+      {
+        {
+          signup: (
+            <Button
+              data-testid="signup-button"
+              type="submit"
+              disabled={disabledButton}
+              onClick={handleSubmit}
+            >
+              회원가입
+            </Button>
+          ),
+          signin: (
+            <Button
+              data-testid="signin-button"
+              type="submit"
+              disabled={disabledButton}
+              onClick={handleSubmit}
+            >
+              로그인
+            </Button>
+          ),
+        }[authType]
+      }
     </form>
   );
 }
 
-export default SignupForm;
+export default AuthForm;
