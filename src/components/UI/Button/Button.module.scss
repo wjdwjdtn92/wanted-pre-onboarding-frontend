@@ -1,0 +1,12 @@
+.button {
+  background-color: black;
+  color: white;
+  padding: 16px;
+  font-weight: 500;
+  border-radius: 6px;
+
+  &:disabled {
+    cursor: unset;
+    opacity: 0.5;
+  }
+}

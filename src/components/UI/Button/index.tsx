@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './Button.module.scss';
 
 type ButtonProps = {
   type?: 'button' | 'submit';
@@ -8,7 +9,7 @@ type ButtonProps = {
 
 function Button({ type = 'button', children, ...rest }: ButtonProps) {
   return (
-    <button type={type} {...rest}>
+    <button className={styles.button} type={type} {...rest}>
       {children}
     </button>
   );
