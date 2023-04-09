@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { TodoType } from '../../@type/todo.type';
 import useAuth from '../../Auth/useAuth';
+import TodoForm from '../../components/Todos/TodoForm';
 import TodoList from '../../components/Todos/TodoList';
-import { getTodos } from '../../utils/api/todoApi';
+import { createTodos, getTodos } from '../../utils/api/todoApi';
+
+import styles from './TodoPage.module.scss';
 
 function TodoPage() {
   const [todoList, setTodoList] = useState<TodoType[]>([]);
@@ -32,8 +35,24 @@ function TodoPage() {
     console.log(id);
   };
 
-  return isLoding ? null : (
-    <TodoList todoList={todoList} onEdit={handleEdit} onDelete={handleDelete} />
+  const handleSubmit = async ({ todo }: { todo: string }) => {
+    try {
+      const newTodo = await createTodos({ todo, accessToken });
+      setTodoList((preState) => {
+        return [...preState, newTodo];
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  return (
+    <main className={styles.main}>
+      <TodoForm onSubmit={handleSubmit} />
+      {isLoding ? null : (
+        <TodoList todoList={todoList} onEdit={handleEdit} onDelete={handleDelete} />
+      )}
+    </main>
   );
 }
 
