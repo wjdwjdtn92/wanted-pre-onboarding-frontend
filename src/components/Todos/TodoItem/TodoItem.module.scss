@@ -10,8 +10,11 @@
 }
 
 .todo_label {
-  @include flex();
+  display: flex;
+  justify-content: flex-start;
+  padding: 6px 32px;
   gap: 6px;
+  min-width: 300px;
 }
 
 .todo_button {
