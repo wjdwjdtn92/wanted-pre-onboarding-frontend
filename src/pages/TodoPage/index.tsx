@@ -3,7 +3,7 @@ import { TodoType } from '../../@type/todo.type';
 import useAuth from '../../Auth/useAuth';
 import TodoForm from '../../components/Todos/TodoForm';
 import TodoList from '../../components/Todos/TodoList';
-import { createTodos, getTodos } from '../../utils/api/todoApi';
+import { createTodos, deleteTodos, getTodos } from '../../utils/api/todoApi';
 
 import styles from './TodoPage.module.scss';
 
@@ -31,8 +31,22 @@ function TodoPage() {
     console.log(id);
   };
 
-  const handleDelete = ({ id }: { id: number }) => {
-    console.log(id);
+  const handleDelete = async ({ id }: { id: number }) => {
+    try {
+      const response = await deleteTodos({ id, accessToken });
+
+      if (response.status !== 204) {
+        throw String('삭제 실패');
+      }
+
+      setTodoList((preState) => {
+        return [...preState].filter((post) => {
+          return post.id !== id;
+        });
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleSubmit = async ({ todo }: { todo: string }) => {
