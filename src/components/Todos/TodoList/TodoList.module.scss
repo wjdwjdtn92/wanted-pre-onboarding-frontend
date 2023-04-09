@@ -1,0 +1,11 @@
+@mixin flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.todo_list {
+  @include flex();
+  flex-direction: column;
+  gap: 6px;
+}
