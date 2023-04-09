@@ -10,6 +10,10 @@ type createTodoRequestType = headerType & {
   todo: string;
 };
 
+type deleteTodoRequestType = headerType & {
+  id: number;
+};
+
 async function getTodos({ accessToken }: headerType): Promise<TodoType[]> {
   return client
     .get('/todos', { headers: { Authorization: `Bearer ${accessToken}` } })
@@ -26,4 +30,8 @@ async function createTodos({ todo, accessToken }: createTodoRequestType) {
     });
 }
 
-export { getTodos, createTodos };
+async function deleteTodos({ id, accessToken }: deleteTodoRequestType) {
+  return client.delete(`/todos/${id}`, { headers: { Authorization: `Bearer ${accessToken}` } });
+}
+
+export { getTodos, createTodos, deleteTodos };
