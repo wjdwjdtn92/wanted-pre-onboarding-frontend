@@ -39,7 +39,7 @@ function TodoItem({ id, todo, isCompleted, onUpdate, onDelete }: TodoItemProps) 
 
   const handleChecked = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { checked } = event.target;
-    onUpdate({ id, todo: editTodo, isCompleted: !checked });
+    onUpdate({ id, todo: editTodo, isCompleted: checked });
 
     setIsChecked((preSate) => {
       return !preSate;
