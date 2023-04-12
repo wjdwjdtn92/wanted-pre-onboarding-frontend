@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig } from 'axios';
 
-const BASE_URL = 'http://localhost:8000';
+const BASE_URL = 'https://www.pre-onboarding-selection-task.shop';
 
 const axiosConfig: AxiosRequestConfig = {
   baseURL: BASE_URL,
