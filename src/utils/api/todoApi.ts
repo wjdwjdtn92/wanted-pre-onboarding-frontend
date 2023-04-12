@@ -1,4 +1,4 @@
-import { TodoType } from '../../@type/todo.type';
+import { TodoUpdateType, TodoType } from '../../@type/todo.type';
 
 import client from './api';
 
@@ -9,6 +9,11 @@ type headerType = {
 type createTodoRequestType = headerType & {
   todo: string;
 };
+
+type patchTodoRequestType = headerType &
+  TodoUpdateType & {
+    id: number;
+  };
 
 type deleteTodoRequestType = headerType & {
   id: number;
@@ -30,8 +35,20 @@ async function createTodos({ todo, accessToken }: createTodoRequestType) {
     });
 }
 
+async function putTodos({ id, todo, isCompleted, accessToken }: patchTodoRequestType) {
+  return client
+    .put(
+      `/todos/${id}`,
+      { todo, isCompleted },
+      { headers: { Authorization: `Bearer ${accessToken}` } },
+    )
+    .then((response) => {
+      return response.data;
+    });
+}
+
 async function deleteTodos({ id, accessToken }: deleteTodoRequestType) {
   return client.delete(`/todos/${id}`, { headers: { Authorization: `Bearer ${accessToken}` } });
 }
 
-export { getTodos, createTodos, deleteTodos };
+export { getTodos, createTodos, deleteTodos, putTodos };

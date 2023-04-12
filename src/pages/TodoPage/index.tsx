@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { TodoType } from '../../@type/todo.type';
+import { TodoUpdateType, TodoType } from '../../@type/todo.type';
 import useAuth from '../../Auth/useAuth';
 import TodoForm from '../../components/Todos/TodoForm';
 import TodoList from '../../components/Todos/TodoList';
-import { createTodos, deleteTodos, getTodos } from '../../utils/api/todoApi';
+import { createTodos, deleteTodos, getTodos, putTodos } from '../../utils/api/todoApi';
 
 import styles from './TodoPage.module.scss';
 
@@ -27,8 +27,21 @@ function TodoPage() {
     setIsLoading(false);
   }, []);
 
-  const handleEdit = ({ id }: { id: number }) => {
-    console.log(id);
+  const handleUpdate = async ({ id, todo, isCompleted }: TodoUpdateType) => {
+    try {
+      const newTodo = await putTodos({ id, todo, isCompleted, accessToken });
+
+      const newTodoList = todoList.map((item) => {
+        if (item.id === id) {
+          return newTodo;
+        }
+        return item;
+      });
+
+      setTodoList(newTodoList);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleDelete = async ({ id }: { id: number }) => {
@@ -64,7 +77,7 @@ function TodoPage() {
     <main className={styles.main}>
       <TodoForm onSubmit={handleSubmit} />
       {isLoding ? null : (
-        <TodoList todoList={todoList} onEdit={handleEdit} onDelete={handleDelete} />
+        <TodoList todoList={todoList} onUpdate={handleUpdate} onDelete={handleDelete} />
       )}
     </main>
   );

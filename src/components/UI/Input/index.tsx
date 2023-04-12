@@ -3,14 +3,15 @@ import styles from './Input.module.scss';
 
 type InputProps = {
   name: string;
-  label: string;
+  label?: string;
+  displayLabel?: boolean;
   [rest: string]: any;
 };
 
-function Input({ name, label, ...rest }: InputProps) {
+function Input({ name, label, displayLabel = true, ...rest }: InputProps) {
   return (
     <>
-      <label htmlFor={name}>{label}</label>
+      {displayLabel && <label htmlFor={name}>{label}</label>}
       <input className={styles.input} name={name} {...rest} />
     </>
   );
