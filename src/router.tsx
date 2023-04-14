@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, Navigate } from 'react-router-dom';
 import PrivateRoute from './components/PrivateRoute';
 import TodoRoute from './components/TodoRoute';
 import SigninPage from './pages/SigninPage';
@@ -6,6 +6,10 @@ import SignupPage from './pages/SignupPage';
 import TodoPage from './pages/TodoPage';
 
 const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Navigate to="/signin" />,
+  },
   {
     path: '/',
     element: <TodoRoute />,
