@@ -56,9 +56,16 @@ function TodoItem({ id, todo, isCompleted, onUpdate, onDelete }: TodoItemProps) 
           onChange={handleChecked}
         />
         {isEdit ? (
-          <Input name="content" type="text" value={editTodo} onChange={handleChange} />
+          <Input
+            className={styles.todo_content}
+            name="content"
+            type="text"
+            value={editTodo}
+            onChange={handleChange}
+            data-testid="modify-input"
+          />
         ) : (
-          <span>{todo}</span>
+          <span className={styles.todo_content}>{todo}</span>
         )}
       </label>
       {isEdit ? (
