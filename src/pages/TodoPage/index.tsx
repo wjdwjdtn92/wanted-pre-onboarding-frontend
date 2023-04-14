@@ -74,12 +74,12 @@ function TodoPage() {
   };
 
   return (
-    <main className={styles.main}>
+    <article className={styles.article}>
       <TodoForm onSubmit={handleSubmit} />
       {isLoding ? null : (
         <TodoList todoList={todoList} onUpdate={handleUpdate} onDelete={handleDelete} />
       )}
-    </main>
+    </article>
   );
 }
 

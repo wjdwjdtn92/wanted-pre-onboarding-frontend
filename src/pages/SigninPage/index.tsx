@@ -13,7 +13,6 @@ function SignupPage() {
   const handleSubmit = async ({ email, password }: AuthCredentials) => {
     try {
       const response = await signin({ email, password });
-      console.log(response);
       const accessToken = response.access_token;
 
       if (accessToken?.length === 0) {
@@ -30,9 +29,9 @@ function SignupPage() {
   };
 
   return (
-    <main className={styles.main}>
+    <article className={styles.article}>
       <AuthForm authType="signin" onSubmit={handleSubmit} />
-    </main>
+    </article>
   );
 }
 
