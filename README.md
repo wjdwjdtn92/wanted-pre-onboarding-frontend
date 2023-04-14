@@ -1,46 +1,50 @@
-# Getting Started with Create React App
+## 원티디 프론트엔드 프로온보딩 인턴십 사전과제
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> 원티드 프리온보딩 사전과제로 로그인, 회원가입과 todoList 생성, 삭제, 수정 기능 구현
 
-## Available Scripts
+- 설명: [프리온보딩 인턴십](https://www.wanted.co.kr/events/pre_ob_fe_10)
+- 요구사항: [selection-task](https://github.com/walking-sunset/selection-task)
 
-In the project directory, you can run:
+### 배포
 
-### `npm start`
+- 배포 URL: [링크 클릭](https://wanted-pre-onboarding-frontend-opal.vercel.app/)
+- Vecel 기반 배포
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### 기술스택
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- SASS
+- React
+- axios
 
-### `npm test`
+### 구현 간단 설명
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- 인증 auth를 conetext를 통해 전역관리
+- PrivateRoute, TodoRoute를 통해 토큰에 존재여부 따른 리다랙트 구현
 
-### `npm run build`
+### 개발 기간
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+> 2023.03.30 ~ 2023.04.12(총 기간) [상세]
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- 03.30 ~ 31: 초기 셋팅
+- 04.01 ~ 05: 로그인 기능 구현
+- 04.06 ~ 12: todo 기능 구현
+- 04.12 ~ 14: 배포
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 실행 방법
 
-### `npm run eject`
+- git clone
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+  ```
+  git clone https://github.com/wjdwjdtn92/numble-challenge-hpny.git
+  ```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- 패키지 설치
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+  ```
+  npm install
+  ```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- 실행
+  ```
+  npm start
+  ```
