@@ -9,7 +9,7 @@ type InputProps = {
   [rest: string]: any;
 };
 
-function Input({ name, label, className, displayLabel = true, ...rest }: InputProps) {
+function Input({ name, label, className = '', displayLabel = true, ...rest }: InputProps) {
   const classNames = `${styles.input} ${className}`;
 
   return (
