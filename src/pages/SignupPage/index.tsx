@@ -23,9 +23,9 @@ function SignupPage() {
   };
 
   return (
-    <main className={styles.main}>
+    <article className={styles.article}>
       <AuthForm authType="signup" onSubmit={handleSubmit} />
-    </main>
+    </article>
   );
 }
 

@@ -45,6 +45,7 @@ function AuthForm({ onSubmit, authType }: AuthFormProps) {
           data-testid="email-input"
           onChange={onChange}
           type="email"
+          autoComplete="current-email"
           required
         />
       </fieldset>
@@ -56,6 +57,7 @@ function AuthForm({ onSubmit, authType }: AuthFormProps) {
           data-testid="password-input"
           onChange={onChange}
           type="password"
+          autoComplete="current-password"
           required
         />
       </fieldset>

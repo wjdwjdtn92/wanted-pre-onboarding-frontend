@@ -1,4 +1,5 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom';
+import Layout from './components/Layout/Layout';
 import PrivateRoute from './components/PrivateRoute';
 import TodoRoute from './components/TodoRoute';
 import SigninPage from './pages/SigninPage';
@@ -7,31 +8,36 @@ import TodoPage from './pages/TodoPage';
 
 const router = createBrowserRouter([
   {
-    path: '/',
-    element: <Navigate to="/signin" />,
-  },
-  {
-    path: '/',
-    element: <TodoRoute />,
+    element: <Layout />,
     children: [
       {
-        path: 'signup',
-        element: <SignupPage />,
+        path: '/',
+        element: <Navigate to="/signin" />,
       },
       {
-        path: 'signin',
-        element: <SigninPage />,
+        path: '/',
+        element: <TodoRoute />,
+        children: [
+          {
+            path: 'signup',
+            element: <SignupPage />,
+          },
+          {
+            path: 'signin',
+            element: <SigninPage />,
+          },
+        ],
       },
-    ],
-  },
 
-  {
-    path: '/',
-    element: <PrivateRoute />,
-    children: [
       {
-        path: 'todo',
-        element: <TodoPage />,
+        path: '/',
+        element: <PrivateRoute />,
+        children: [
+          {
+            path: 'todo',
+            element: <TodoPage />,
+          },
+        ],
       },
     ],
   },
