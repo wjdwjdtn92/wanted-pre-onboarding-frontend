@@ -35,7 +35,7 @@
 - git clone
 
   ```
-  git clone https://github.com/wjdwjdtn92/numble-challenge-hpny.git
+  git clone https://github.com/wjdwjdtn92/wanted-pre-onboarding-frontend
   ```
 
 - 패키지 설치
