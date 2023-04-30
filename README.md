@@ -5,6 +5,9 @@
 - 설명: [프리온보딩 인턴십](https://www.wanted.co.kr/events/pre_ob_fe_10)
 - 요구사항: [selection-task](https://github.com/walking-sunset/selection-task)
 
+### 회고록
+> [[회고] 원티드 프리온보딩 프론트엔드 인턴십 - 사전 과제편](https://velog.io/@jungsu/%ED%9A%8C%EA%B3%A0-%EC%9B%90%ED%8B%B0%EB%93%9C-%ED%94%84%EB%A6%AC%EC%98%A8%EB%B3%B4%EB%94%A9-%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C-%EC%9D%B8%ED%84%B4%EC%8B%AD-%EC%82%AC%EC%A0%84-%EA%B3%BC%EC%A0%9C%ED%8E%B8)
+
 ### 배포
 
 - 배포 URL: [링크 클릭](https://wanted-pre-onboarding-frontend-opal.vercel.app/)
